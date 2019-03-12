@@ -41,6 +41,6 @@ if __name__ == "__main__":
     jid_list = df[1].values.tolist()
     ka_list = df[2].values.tolist()
 
-    for i in range(0, len(jid_list)+1):
+    for i in range(0, len(jid_list)):
         job_spider(jid_list[i], ka_list[i], i)
         time.sleep(1)

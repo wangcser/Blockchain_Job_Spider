@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
-def list_parser(p=1):
+def list_parser(p):
     # load list page
     file = "./raw_data/list/" + str(p) + ".html"
     with open(file, 'r', encoding='utf-8') as f:
@@ -33,7 +33,7 @@ def list_parser(p=1):
         job = {
             "jid": jid,
             "ka": ka,
-            "url": url,
+            # "url": url,
             "title": title,
             "salary": salary,
             "company": company,
@@ -41,7 +41,10 @@ def list_parser(p=1):
         }
         job_list.append(job)
 
-    job_attrs = ["url", "jid", "ka", "title", "salary", "company",
+    # job_attrs = ["url", "jid", "ka", "title", "salary", "company",
+    #              "pub_time"]
+
+    job_attrs = ["jid", "ka", "title", "salary", "company",
                  "pub_time"]
     df = pd.DataFrame(job_list, columns=job_attrs)
 
@@ -52,5 +55,5 @@ def list_parser(p=1):
 if __name__ == "__main__":
 
     for i in range(1, 11):
-        list_parser(i)
+        list_parser(p=i)
 

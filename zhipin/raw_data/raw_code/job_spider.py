@@ -38,8 +38,9 @@ if __name__ == "__main__":
     file = "./raw_data/list/job_list.csv"
     df = pd.read_csv(file, encoding='utf-8', header=None)
 
-    jid_list = df[1].values.tolist()
-    ka_list = df[2].values.tolist()
+    jid_list = df[0].values.tolist()
+    ka_list = df[1].values.tolist()
+    # print(jid_list)
 
     for i in range(0, len(jid_list)):
         job_spider(jid_list[i], ka_list[i], i)

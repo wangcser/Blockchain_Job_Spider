@@ -4,7 +4,7 @@ import os
 import logging
 
 
-def list_spider(p=1):
+def list_spider(p):
     # request info.
 
     key_word = "区块链"
@@ -38,8 +38,8 @@ def list_spider(p=1):
             f.write(content)
 
         result = " succeed."
-    except IOError:
-        result = " failed"
+    except IOError as e:
+        result = " failed" + e
 
     log = "request list page " + page + result
     print(log)
@@ -48,5 +48,5 @@ def list_spider(p=1):
 if __name__ == "__main__":
 
     for i in range(1, 11):
-        list_spider(i)
+        list_spider(p=i)
         time.sleep(1)
